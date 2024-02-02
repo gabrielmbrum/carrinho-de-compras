@@ -2,15 +2,15 @@ let total = 1400;
 
 function adicionar () 
 {
-   
+    //initializating the variables
     let prod = document.getElementById('produto').value;
     let nomeProd = prod.split('-')[0];
-    console.log(nomeProd);
     let valUni = prod.split('$')[1];
-    console.log(valUni);
-
     let qtde = document.getElementById('quantidade').value;
-    console.log(qtde);
+
+    //alerts that it's a repeated item
+    if (carrinho.textContent.includes(`${nomeProd}`))
+        alert('Lembre-se que já adicionou esse produto ao carrinho! :)');
 
     //prevents a null quantify of a item to be added
     if (!qtde || qtde == 0)  
@@ -26,8 +26,6 @@ function adicionar ()
         <span class="texto-azul">${qtde}x</span> ${nomeProd} <span class="texto-azul">R$ ${valUni}</span>
       </section>`;
     }
-    
-    
 }   
 
 function limpar ()
@@ -42,7 +40,7 @@ function limpar ()
 function muda_total (par)
 {
     let texto = document.querySelector('p');
-    if (!par)   
+    if (!par)   //par == 0
     {
         texto.innerHTML = `Total: R$ ${par}`;
         total = 0;
@@ -53,10 +51,3 @@ function muda_total (par)
         texto.innerHTML = `Total: R$ ${total}`;
     }
 }
-
-if (carrinho.textContent.includes(`${nomeProd}`))
-            console.log('repetido');
-        else  
-            console.log('wow');
-
-            console.log(carrinho.innerHTML);
