@@ -7,6 +7,7 @@ function adicionar ()
     let nomeProd = prod.split('-')[0];
     let valUni = prod.split('$')[1];
     let qtde = document.getElementById('quantidade').value;
+    let carrinho = document.getElementById('lista-produtos');
 
     //alerts that it's a repeated item
     if (carrinho.textContent.includes(`${nomeProd}`))
